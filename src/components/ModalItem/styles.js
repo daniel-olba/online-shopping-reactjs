@@ -9,18 +9,10 @@ export default makeStyles(() => ({
     root: {
         minWidth: "35%",
     },
-    media: {
-        height: 10,
-        paddingTop: "56.25%",
-    },
     cardActions: {
         display: "flex",
         justifyContent: "space-around",
         paddingBottom: '16px'
-    },
-    cardContent: {
-        display: "flex",
-        justifyContent: "space-between",
     },
     buttons: {
         display: "flex",

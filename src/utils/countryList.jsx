@@ -1,0 +1,15 @@
+export const countryList = [
+    { id: "AR", name: "Argentina" },
+    { id: "AU", name: "Australia" },
+    { id: "BE", name: "Belgium" },
+    { id: "BR", name: "Brazil" },
+    { id: "DK", name: "Denmark" },
+    { id: "FR", name: "France" },
+    { id: "DE", name: "Germany" },
+    { id: "IN", name: "India" },
+    { id: "IT", name: "Italy" },
+    { id: "PT", name: "Portugal" },
+    { id: "CH", name: "Switzerland" },
+    { id: "GB", name: "United Kingdom" },
+    { id: "US", name: "United States" },
+];

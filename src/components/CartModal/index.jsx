@@ -9,6 +9,9 @@ import {
     Typography,
     Modal,
     Button,
+    List,
+    ListItem,
+    ListItemText,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
@@ -42,9 +45,9 @@ const ModalItem = (props) => {
         >
             <Card className={styles.root}>
                 <CardContent className={styles.cardContent}>
-                    <div>
+                    <div style={{ width: '100%' }}>
                         <Typography variant="h6" gutterBottom>
-                            Your Shoopping cart subtotal:
+                            Order Summary
                         </Typography>
                         {!shoppingState.values.cart.length ? (
                             <>
@@ -58,14 +61,31 @@ const ModalItem = (props) => {
                                 </Typography>
                             </>
                         ) : (
-                            <>
+                            <List disablePadding>
                                 {cart.map((item) => (
-                                    <Typography>
-                                        {item.quantity} x {item.name}
-                                    </Typography>
+                                    <ListItem
+                                        style={{ padding: "10px 0" }}
+                                        key={item.name}
+                                    >
+                                        <ListItemText
+                                            primary={item.name}
+                                            secondary={`Quantity: ${item.quantity}`}
+                                        />
+                                        <Typography variant="body2">
+                                            ${item.price}
+                                        </Typography>
+                                    </ListItem>
                                 ))}
-                                <Typography>Total cost: ${cartCost}</Typography>
-                            </>
+                                <ListItem style={{ padding: "10px 0" }}>
+                                    <ListItemText primary="Total:" />
+                                    <Typography
+                                        variant="subtitle1"
+                                        style={{ fontWeight: "700" }}
+                                    >
+                                        ${cartCost}
+                                    </Typography>
+                                </ListItem>
+                            </List>
                         )}
                     </div>
                 </CardContent>

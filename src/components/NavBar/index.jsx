@@ -7,8 +7,6 @@ import {
     Toolbar,
     IconButton,
     Badge,
-    MenuItem,
-    Menu,
     Typography,
 } from "@material-ui/core";
 import { ShoppingCart, Store } from "@material-ui/icons";
@@ -37,7 +35,9 @@ const NavBar = () => {
                 <Toolbar>
                     {/* left side of the navbar - logo and name */}
                     <IconButton
-                        className={styles.menuButton}
+                        component={Link}
+                        to="/"
+                        className={styles.icon}
                         color="inherit"
                         aria-label="menu"
                     >

@@ -7,7 +7,4 @@ export default makeStyles((theme) => ({
         backgroundColor: theme.palette.background.default,
         padding: theme.spacing(3),
     },
-    root: {
-        flexGrow: 1,
-    },
 }));

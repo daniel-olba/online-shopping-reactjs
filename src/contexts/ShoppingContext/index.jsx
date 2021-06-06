@@ -4,6 +4,9 @@ import faker from "faker";
 const ShoppingContext = createContext();
 
 const ShoppingContextProvider = (props) => {
+    // since we use faker, reloading the page would retrive new products | for the future
+    // const initialCart = JSON.parse(localStorage.getItem("cart")) || [];
+
     const [products, changeProducts] = useState([]);
     const [currentProductId, setCurrentProductId] = useState({});
     const [cart, setCart] = useState([]);
@@ -22,6 +25,10 @@ const ShoppingContextProvider = (props) => {
         }
         changeProducts(productList);
     }, []);
+
+    // useEffect(() => {
+    //     localStorage.setItem("cart", JSON.stringify(cart));
+    // }, [cart]);
 
     return (
         <ShoppingContext.Provider
