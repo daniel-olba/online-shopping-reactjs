@@ -9,6 +9,9 @@ import {
     Typography,
     Modal,
     Button,
+    List,
+    ListItem,
+    ListItemText,
 } from "@material-ui/core";
 
 // Styles
@@ -37,12 +40,30 @@ const ModalItem = (props) => {
         >
             <Card className={styles.root}>
                 <CardContent>
-                    <Typography variant="h6" gutterBottom>
+                    <List disablePadding>
+                        <ListItem style={{ padding: "10px 0" }} key={product.name}>
+                            <ListItemText
+                                primary={`Current item: ${product.name}`}
+                                secondary={`Quantity: ${product.quantity}`}
+                            />
+                        </ListItem>
+                        <ListItem style={{ padding: "10px 0" }}>
+                            <ListItemText primary="Subtotal:" />
+                            <Typography
+                                variant="subtitle1"
+                                style={{ fontWeight: "700" }}
+                            >
+                                ${product.price * product.quantity}
+                            </Typography>
+                        </ListItem>
+                    </List>
+                    {/* <Typography variant="h6" gutterBottom>
                         Current item: {product.name}
                     </Typography>
+                    <ListItemText primary="Total:"/>
                     <Typography variant="h6" gutterBottom>
                         Subtotal: ${product.price * product.quantity}
-                    </Typography>
+                    </Typography> */}
                     <Typography variant="body1" color="textSecondary">
                         Please choose the amount you wish to add to your cart.
                     </Typography>

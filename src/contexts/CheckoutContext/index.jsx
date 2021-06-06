@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import { useShoppingState } from "contexts/ShoppingContext";
 
 // Components
@@ -23,6 +23,13 @@ const CheckoutContextProvider = (props) => {
 
     useEffect(() => {
         setShippingCountries(countryList);
+        if (JSON.parse(localStorage.getItem("shippingData"))) {
+            setShippingCountry(
+                JSON.parse(localStorage.getItem("shippingData")).shippingCountry
+            );
+        } else {
+            setShippingCountry("");
+        }
         setShippingData(JSON.parse(localStorage.getItem("shippingData")) || {});
     }, []);
 
@@ -58,7 +65,7 @@ const CheckoutContextProvider = (props) => {
                     shippingData,
                     shippingItems,
                     shippingDetailsSaved,
-                    shippingPhone
+                    shippingPhone,
                 },
                 actions: {
                     setActiveState: (newState) => setActiveState(newState),

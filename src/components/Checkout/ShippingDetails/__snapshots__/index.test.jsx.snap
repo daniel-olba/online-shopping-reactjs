@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShippingDetails component unit testing matches snapshot 1`] = `
+Array [
+  <h6
+    className="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom"
+    style={
+      Object {
+        "margin": "20px 0",
+      }
+    }
+  >
+    Shipping Details
+  </h6>,
+  <p
+    className="MuiTypography-root MuiTypography-body2"
+  >
+     
+  </p>,
+  <p
+    className="MuiTypography-root MuiTypography-body2"
+  />,
+  <p
+    className="MuiTypography-root MuiTypography-body2"
+  />,
+  <p
+    className="MuiTypography-root MuiTypography-body2"
+  >
+    , 
+  </p>,
+  <p
+    className="MuiTypography-root MuiTypography-body2"
+  />,
+  <br />,
+  <button
+    className="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    <span
+      className="MuiButton-label"
+    >
+      Save shipping details
+    </span>
+  </button>,
+  <br />,
+]
+`;
