@@ -4,7 +4,6 @@ import { useShoppingState } from "contexts/ShoppingContext";
 // Components
 import {
     Card,
-    CardMedia,
     CardContent,
     CardActions,
     Typography,

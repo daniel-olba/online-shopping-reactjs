@@ -26,7 +26,6 @@ const Shipping = () => {
 
     const { activeStep, shippingCountries, shippingCountry, shippingData } =
         checkoutState.values;
-    console.log(shippingData);
 
     return (
         <>
@@ -36,7 +35,6 @@ const Shipping = () => {
             <FormProvider {...methods}>
                 <form
                     onSubmit={methods.handleSubmit((data) => {
-                        // console.log({ ...data, shippingCountry });
                         checkoutState.actions.setShippingData({
                             ...data,
                             shippingCountry,
@@ -76,7 +74,6 @@ const Shipping = () => {
                             <FormControl className={styles.formControl}>
                                 <InputLabel>Shipping Country *</InputLabel>
                                 <Select
-                                    // value={shippingData.shippingCountry}
                                     required
                                     value={
                                         shippingCountry &&

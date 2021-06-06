@@ -8,37 +8,39 @@ import _ from "lodash";
 const CheckoutContext = createContext();
 
 const CheckoutContextProvider = (props) => {
-    const initialShippingData =
-        JSON.parse(localStorage.getItem("shippingData")) || {};
-
     const shoppingState = useShoppingState();
 
     const [activeStep, setActiveState] = useState(0);
 
     const [shippingCountries, setShippingCountries] = useState([]);
     const [shippingCountry, setShippingCountry] = useState("");
-    const [shippingData, setShippingData] = useState(initialShippingData);
+    const [shippingData, setShippingData] = useState({});
     const [shippingItems, setShippingItems] = useState([]);
+
+    const [shippingPhone, setShippingPhone] = useState({});
 
     const [shippingDetailsSaved, setShippingDetailsSaved] = useState(false);
 
     useEffect(() => {
         setShippingCountries(countryList);
+        setShippingData(JSON.parse(localStorage.getItem("shippingData")) || {});
     }, []);
 
     useEffect(() => {
-        setShippingDetailsSaved(_.isEqual(initialShippingData, shippingData));
-        console.log(
-            `_.isEqual(initialShippingData, shippingData): `,
-            _.isEqual(initialShippingData, shippingData)
+        setShippingDetailsSaved(
+            _.isEqual(
+                JSON.parse(localStorage.getItem("shippingData")),
+                shippingData
+            )
         );
-    }, [initialShippingData, shippingData]);
+    }, [shippingData]);
 
     const confirmPurchase = () => {
         setShippingItems([...shoppingState.values.cart]);
         shoppingState.actions.setCart([]);
         setActiveState(0);
-        setShippingData(initialShippingData);
+        setShippingCountry(shippingData.shippingCountry);
+        setShippingData(JSON.parse(localStorage.getItem("shippingData")) || {});
     };
 
     const saveShippingDetails = () => {
@@ -56,12 +58,14 @@ const CheckoutContextProvider = (props) => {
                     shippingData,
                     shippingItems,
                     shippingDetailsSaved,
+                    shippingPhone
                 },
                 actions: {
                     setActiveState: (newState) => setActiveState(newState),
                     setShippingCountry: (newState) =>
                         setShippingCountry(newState),
                     setShippingData: (newState) => setShippingData(newState),
+                    setShippingPhone: (newState) => setShippingPhone(newState),
                 },
                 confirmPurchase,
                 saveShippingDetails,
