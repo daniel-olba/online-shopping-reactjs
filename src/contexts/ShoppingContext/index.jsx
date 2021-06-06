@@ -11,13 +11,22 @@ const ShoppingContextProvider = (props) => {
     const [currentProductId, setCurrentProductId] = useState({});
     const [cart, setCart] = useState([]);
 
+    const getDescription = (text) => {
+        if (text.length <= 85) {
+            return text;
+        }
+        return text.substr(0, 85) + "\u2026";
+    };
+
     useEffect(() => {
         const productList = [];
         for (let _i = 0; _i < 5; _i++) {
             productList.push({
                 id: faker.datatype.uuid(),
                 name: faker.commerce.product(),
-                description: faker.commerce.productDescription(),
+                description: getDescription(
+                    faker.commerce.productDescription()
+                ),
                 price: parseFloat(faker.commerce.price()),
                 image: faker.image.image(),
                 quantity: 0,
