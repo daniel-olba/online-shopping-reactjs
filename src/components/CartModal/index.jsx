@@ -24,9 +24,6 @@ const ModalItem = (props) => {
 
     const { modalOpen, onClose } = props;
     const { cart } = shoppingState.values;
-    // const index = cart.findIndex(
-    //     (el) => el.id === shoppingState.values.currentProductId
-    // );
 
     const cartCost = cart.reduce(
         (accumulator, currentVal) => accumulator + currentVal.cost,
@@ -40,8 +37,6 @@ const ModalItem = (props) => {
             aria-labelledby="simple-modal-title"
             aria-describedby="simple-modal-description"
             className={styles.modal}
-            // disableBackdropClick
-            // disableEscapeKeyDown
         >
             <Card className={styles.root}>
                 <CardContent className={styles.cardContent}>
